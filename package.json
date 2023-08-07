@@ -1,0 +1,22 @@
+{
+  "name": "single-pag-api-rest-javascript",
+  "version": "1.0.0",
+  "description": "Practica del Curso de API REST con Javascript de Platzi",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veronicaagarcia/single-pag-api-rest-javascript.git"
+  },
+  "author": "@veronicaagarcia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veronicaagarcia/single-pag-api-rest-javascript/issues"
+  },
+  "homepage": "https://github.com/veronicaagarcia/single-pag-api-rest-javascript#readme",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
