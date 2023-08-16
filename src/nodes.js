@@ -7,7 +7,7 @@ const headerTitleBackHome = document.querySelector('.header-title2');
 const backBtn = document.querySelector('.backBtn');
 const headerLanguage = document.querySelector('.header-language');
 const imgLanguage = document.querySelector('.flag-img');
-const headerLanguageTitle = document.querySelector('.header-title');
+// const headerLanguageTitle = document.querySelector('.header-title');
 
 //Trends
 const trends = document.getElementById('trends');

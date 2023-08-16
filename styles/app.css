@@ -9,19 +9,17 @@ html {
     font-family: var(--font-family);
 }
 
-body {background-color: var(--white);}
+body {background-color: var(--black);}
 
 :root{
-    --primary-color: #4f8699;
-        --light-primary-color:#7b5bf2;
-        --dark-primary-color:#018786;
-    --secondary-color: #563444;
-    --light-secondary-color:#E1BEE7;
-     --dark-secondary-color:#BA68C8;
+    --primary-color: #bf2b2b;
+    --secondary-color: #f0cb09;
+    --light-secondary-color:#f2f2f2;
+    --dark-secondary-color:#86a0c0;
     --white: #edf2fa;
     --black: #2f2e2e;
     --grey: #808085;
-       --loading:rgb(168, 168, 174);
+    --loading:rgb(168, 168, 174);
     --font: 1.8rem;
     --font-titles-h1: 3.3rem;
     --font-titles-h2: 2rem;
@@ -150,7 +148,7 @@ h2#searchTitle {
     font-size: var(--font-titles-h2);
     width: 53vw;
     border-radius: 30px;
-    color:var(--secondary-color);
+    color:var(--dark-secondary-color);
     height: 4.8vh;
     font-family: var(--font-family-titles);
     border: 0;
@@ -177,8 +175,9 @@ h2#searchTitle {
     display: flex;
     justify-content: end;
     margin: 15px 0;
+    padding: 0 6px;
 }
-#header div.header-title-language h1.header-title{
+/* #header div.header-title-language h1.header-title{
     width: 40vw;
     height: 4.5vh;
     align-self: center;
@@ -187,7 +186,7 @@ h2#searchTitle {
     text-align: center;
     margin-top: -4px;
     font-size: medium;
-}
+} */
 #header div.header-title-language article.header-language{
     width: fit-content;
     height: 5vh;
@@ -196,11 +195,12 @@ h2#searchTitle {
     width: 42px;
     min-height: fit-content;
     cursor: pointer;
+    padding-top: 3px;
 }
 /* Trends Page and ButonLoadMore*/
 .trendsBtn {
     width: 100vw;
-    height: 5vh;
+    height: auto;
 }
 .trendsBtn button{
     cursor: pointer;
@@ -311,9 +311,10 @@ div.movie-container h1.category-title {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     overflow: hidden;
 }
-.trends-img:hover {
+/* .trends-img:hover {
     width: 47vw;
-}
+    box-shadow: 0px -14px 62px -16px rgba(255,255,255,0.8);
+} */
 .trends-overview {
     color: var(--grey);
     text-align: justify;
@@ -424,7 +425,7 @@ h1.category-title {
     display: flex;
     overflow-x: scroll; 
     width: 100%;
-    padding: 2px;
+    padding: 8px 2px 0px 0px;
     background-color: var(--primary-color);
 }
 .category-type {
@@ -449,6 +450,8 @@ h1.category-title {
     top: 20%;
     left: 5%;
     animation: beating 2s ease infinite;
+
+    display: none;
 }
   
 .love:before,
@@ -491,11 +494,11 @@ h1.category-title {
     margin: auto;
     color: var(--secondary-color);
     width: 100%;
-    height: 8vh;
+    height: auto;
 }
 .favorites-title {
     font-size: var(--font-titles-h2);
-    margin-left: 14%;
+    text-align: center;
     color: var(--secondary-color);
     font-family: var(--font-family-titles);
 }
@@ -503,8 +506,8 @@ h1.category-title {
 #favorites article.favorites-article{
     overflow-y: hidden;
     white-space: nowrap;
-    height: 42vh;
-    background-color: var(--primary-color);
+    height: auto;
+    background-color: var(--black);
     width: 100vw;
 }
 .favorites-div,
@@ -535,6 +538,7 @@ h1.category-title {
 }
 #favorites article.favorites-article div.trendsContainer div.trends-div img:hover{
     width: 42vw;
+    box-shadow: 0px -14px 24px -16px rgba(255,255,255,0.8);
 }
 .favorites-btn{
     position: absolute;
@@ -545,20 +549,22 @@ h1.category-title {
     border-radius: 30px;
     padding: 0;
     margin: 0;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     cursor: grab;
-    background-color: var(--white);
+    background-color: var(--black);
 }
 .favorites-btn::before {
     content: '❤';
+    color: var(--white);
    
 }
 .favorites-btn--liked {
-    background-color: var(--secondary-color);
+    background-color: var(--white);
     box-shadow: 0px 0px 10px 2px var(--primary-color);
 }
 .favorites-btn--liked::before {
-    content: '🤍';
+    content: '❤';
+    color: var(--primary-color)
    
 }
 /* #favorites article.favorites-article div.trendsContainer div.trends-div img {

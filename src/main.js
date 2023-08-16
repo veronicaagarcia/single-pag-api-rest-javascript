@@ -32,7 +32,6 @@ function likeMovie (movie) {
         likedMovies[movie.id] = movie;
     }
 
-    
     localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
     if (location.hash.startsWith('#home') || !location.hash) { homePage(); } 
 
@@ -55,37 +54,37 @@ function translator(langParam) {
     langParam = localStorage.getItem('language');
     
     if (langParam == "es-AR") {
-        headerLanguageTitle.innerText = 'Seleccionar idioma';
+        // headerLanguageTitle.innerText = 'Seleccionar idioma';
         searchFormInput.setAttribute('placeholder', 'Buscar pelicula');
         trendingsTitle.innerHTML = "Tendencias de la semana";
         trendingBtn.innerText = 'Tendencias';
         categoryTitle.innerText = 'Categorias de peliculas';
         // relatedMoviesTitle.innerHTML = "Peliculas similares";
-        favoriteTitle.innerText = 'Tu seleccion';
+        favoriteTitle.innerText = 'Tus favoritos';
         footer.innerText = 'Curso de API REST con Javascript. Realizado por @veronicaagarcia';
         searchTitle.innerText = 'Todos los resultados para:'
     }
 
     if (langParam == 'pt-BR') {
-        headerLanguageTitle.innerText = "Selecione o idioma";
+        // headerLanguageTitle.innerText = "Selecione o idioma";
         searchFormInput.setAttribute("placeholder", "Procurar filme");
         trendingsTitle.innerText = "Tendências da semana";
         trendingBtn.innerText = "Tendências";
-        categoryTitle.innerText = "Sua seleção";
+        categoryTitle.innerText = "Categorias de filmes";
         // relatedMoviesTitle.innerText = "Similar movies";
-        favoriteTitle.innerText = "Favoritos";
+        favoriteTitle.innerText = "Seus favoritos";
         footer.innerText = 'Curso API REST com Javascript. Feito por @veronicaagarcia';
         searchTitle.innerText = 'Todos os resultados para:';
     }
 
     if (langParam == 'en-EN') {
-        headerLanguageTitle.innerText = "Select language";
+        // headerLanguageTitle.innerText = "Select language";
         searchFormInput.setAttribute("placeholder", "Search movie");
         trendingsTitle.innerText = "Trendings of the week";
         trendingBtn.innerText = "Trendings";
         categoryTitle.innerText = "Movie categories";
         // relatedMoviesTitle.innerText = "Similar movies";
-        favoriteTitle.innerText = "Your selection";
+        favoriteTitle.innerText = "Your favorites";
         footer.innerText = 'REST API course with Javascript. Made by @veronicaagarcia';
         searchTitle.innerText = 'All results for:';
     }
@@ -164,6 +163,7 @@ function makeMovies (
 }
 
 function btnLoad (){
+
     const btnLoadMore = document.createElement('button');
     btnLoadMore.classList.add('btnLoadMore');
     btnLoadMore.innerText = '+';
