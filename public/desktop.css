@@ -1,0 +1,182 @@
+@media (min-width: 800px) {
+    body {
+        background-color: #86a0c0;
+        max-width: 100vw;
+        height: auto;
+    }
+    .header {
+        width: 100%;
+        height: 30vh;
+        background-color:  #86a0c0;
+    }
+    
+    .header-carousel-title,
+    .header-title {
+        margin-top: 80px;
+        text-align: center;
+        font-size: xxx-large;
+        padding: 12px 0;
+        background-color:  #86a0c0;
+    }
+    
+    .header-carousel-title {
+    
+        z-index: unset;
+        position: unset;
+        top: auto;
+        left: auto;
+        font-size: xxx-large;
+    }
+    #header .searchForm{
+        max-width: 40vw;
+        
+    }
+    #header div.header-language{
+        
+        right: 1%;
+        left: unset;
+        width: fit-content;
+        margin-top: 2%;
+    }
+    
+    /*Carousel*/
+    #header .header-carousel-container {
+        display: none;
+    }
+
+    #header .searchFormInput, 
+    #header .searchBtn {
+        
+        height: 7vh;
+        font-size: xx-large;
+        color: var(--black);
+        font-weight: bolder;
+    } 
+
+    /* Favorites */
+    #favorites {
+
+        height: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #favorites .favorites-title {
+        margin-bottom: 18px;
+        font-size: 3.5rem;
+        color:var(--black)
+    }
+
+    #favorites div.containerMovie {
+        width: 20vw;
+    }
+
+    #favorites img.movieImg {
+
+        height: auto;
+        width: 20vw;
+    }
+
+    #favorites img.movieImg:hover {
+
+        width: 20vw;
+    }
+
+    .favorites-article, #favorites article.favorites-article {
+        overflow-y: hidden;
+        white-space: nowrap;
+        height: auto;
+        width: 70vw;
+        min-height: 35vh;
+    }
+
+    #searchView button.favorites-btn {
+        left: 87%;
+    }
+
+    .GotrendingBtn button {
+        font-size: 3rem;
+        width: 35vw;
+    }
+
+    #footer p, #footer a {
+        font-size: 2.5rem;
+    }
+
+    #movieDetail div.movie-container button {
+
+        position: absolute;
+        top: 13%;
+        left: 73%;
+        height: 5%;
+        width: 10%;
+    }
+    section.movieDetail-container article.relatedMovies button {
+
+        position: absolute;
+        top: 20%;
+        left: 81%;
+        height: 8%;
+        width: 13%;
+    }
+
+    #searchView img:hover {
+        box-shadow: 0px -14px 24px -16px rgba(255,255,255,0.8);
+    }
+
+    #categoryBox .category-container-type {
+        padding: 27px 2px 0px 0px;
+        margin-top: -15px;
+    }
+
+    #categoryBox .category-type {
+        font-size: xx-large;
+    }
+
+    .header-backBtn, #header div.header-language img.flag-img{
+        width: 6vw;
+        height: 6vh;
+        margin-top: 2%;
+    }
+    .header-backBtn{
+        top: 40%;
+        height: 7vh;
+        font-size: 5rem;
+        border-radius: 50px;
+    }
+
+    .movieTitle, div.containerMovie .movieTitle {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    h1.trendsView, div.movie-container h1.categoryBox-title {
+        font-size: x-large;
+    }
+
+    .trends-overview {
+        font-size: large;
+    }
+
+    section.movieDetail-container article.relatedMovies h2 {
+        font-size: large;
+    }
+
+    #trends div.containerMovie button, #searchView div.containerMovie button {
+        position: absolute;
+        top: 14%;
+        left: 81%;
+        height: 10%;
+        width: 15%;
+        border-radius: 30px;
+        padding: 0;
+        margin: 0;
+        font-size: large;
+    }
+    #favorites button.favorites-btn {
+        font-size: x-large;
+        border-radius: 50px;
+        border: none;
+    }
+    
+}

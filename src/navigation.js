@@ -7,23 +7,32 @@ window.addEventListener('hashchange', navigator, false);
 window.addEventListener('scroll', infiniteScroll, {passive:false});
 
 searchBtn.addEventListener('click', () => {
+
     location.hash = `#search=${searchFormInput.value.trim()}` ;
     location.reload();
 });
 
 backBtn.addEventListener('click', () => {
    
-     history.back();
-     trends.innerHTML = '';
-   
-});
+    history.back();
 
-headerTitleBackHome.addEventListener('click', () => {
-    location.hash = '#home';
+    if (location.hash = '#home'){
+
+        location.reload();
+    }
+
     trends.innerHTML = '';
 });
 
-trendsBtn.addEventListener('click', () => {
+headerCarouselTitle.addEventListener('click', () => {
+
+    location.hash = '#home';
+    location.reload();
+    trends.innerHTML = '';
+});
+
+GotrendingBtn.addEventListener('click', () => {
+
     location.hash = '#trends';
 });
 
@@ -57,24 +66,19 @@ function navigator(){
 }
 
 function homePage(){
-    console.log('home');
-
-    headerConteiner.classList.remove('inactive');
+    
+    headerCarouselContainer.classList.remove('inactive');
     backBtn.classList.remove('inactive');
     favoritesMoviesList.classList.remove('inactive');
     favoriteTitle.classList.remove('inactive');
-    favoritesLove.classList.remove('inactive');
     favorites.setAttribute('style', 'display:flex')
-    trendsBtn.classList.remove('inactive');
+    GotrendingBtn.classList.remove('inactive');
     categoryContainer.classList.remove('inactive');
-    categoryTitle.classList.remove('inactive');
-    searchBox.setAttribute('style', 'display:none')
-    search.classList.remove('inactive')
-    searchTitle.classList.add('inactive');
+    searchView.setAttribute('style', 'display:none');
+    search.classList.remove('inactive');
     trends.classList.add('inactive');
     category.classList.add('inactive');
-    category.setAttribute('style', 'display:none')
-    headerTitleBackHome.classList.add('inactive');
+    category.setAttribute('style', 'display:none');
     movieDetail.classList.add('inactive');
     relatedMoviesContainer.classList.add('inactive');
     trendingsTitle.classList.add('inactive');
@@ -88,50 +92,40 @@ function homePage(){
 }
 
 function trendPage(){
-    console.log('trends')
-
-    categoryTitle.classList.add('inactive');
-    relatedMoviesContainer.classList.remove('inactive');
-    headerTitleBackHome.classList.remove('inactive');
-    searchBox.classList.add('inactive');
-    search.classList.add('inactive');
-    searchTitle.classList.add('inactive');
-    backBtn.classList.remove('inactive');
-    trends.classList.remove('inactive');
-    trendingsTitle.classList.remove('inactive');
-    categoryContainer.classList.add('inactive');
-    favoritesMoviesList.classList.add('inactive');
-    favoriteTitle.classList.add('inactive');
-    favoritesLove.classList.add('inactive');
-    favorites.setAttribute('style','display:none');
-    trendsBtn.classList.add('inactive');
-    movieDetail.classList.add('inactive');
-    headerConteiner.classList.add('inactive');
-    category.setAttribute('style', 'display:none')
    
+    header.classList.remove('header');
+    header.classList.add('headerCategory');
+    headerCarouselTitle.classList.remove('header-carousel-title');
+    headerCarouselTitle.classList.add('header-title');
+    backBtn.setAttribute('style', 'top:14%');
+    headerLanguage.setAttribute('style', 'top:14%');
+    headerCarouselContainer.setAttribute('style', 'display:none');
+    GotrendingBtn.setAttribute('style', 'display:none');
+    search.classList.add('inactive');
+    categoryContainer.classList.add('inactive');
+    favorites.setAttribute('style','display:none');
+    searchView.setAttribute('style', 'display:none');
+    
     getTrendingMoviesWeek();
     assignLanguage(headerLanguage);
     translator();
 }
 
 function movieDetailPage(){
-    console.log('estoy en detail Movie');
 
-    relatedMoviesContainer.classList.remove('inactive');
-    headerTitleBackHome.classList.remove('inactive');
-    backBtn.classList.remove('inactive');
+    header.classList.remove('header');
+    header.classList.add('headerCategory');
+    headerCarouselTitle.classList.remove('header-carousel-title');
+    headerCarouselTitle.classList.add('header-title');
+    backBtn.setAttribute('style', 'top:14%');
+    headerLanguage.setAttribute('style', 'top:14%');
+    headerCarouselContainer.setAttribute('style', 'display:none');
+    GotrendingBtn.setAttribute('style', 'display:none');
     movieDetail.classList.remove('inactive');
     favorites.setAttribute('style','display:none');
-    trendsBtn.classList.add('inactive');
-    trends.classList.add('inactive');
-    headerConteiner.classList.add('inactive');
-    searchBox.setAttribute('style', 'display:none')
+    searchView.setAttribute('style', 'display:none');
     categoryContainer.classList.add('inactive');
-    categoryTitle.setAttribute('style', 'display:none')
-    category.setAttribute('style', 'display:none')
-    searchTitle.classList.add('inactive');
     search.classList.add('inactive');
-    trendingsTitle.classList.add('inactive');
 
     const idArray = location.hash.split('=');
     const MovieId = idArray[1];
@@ -144,22 +138,20 @@ function movieDetailPage(){
 }
 
 function categoryPage(){
-    console.log('estoy en categorias')
 
-    categoryContainer.classList.remove('inactive');
-    category.classList.remove('inactive');
-    headerTitleBackHome.classList.remove('inactive');
-    backBtn.classList.remove('inactive');
-    headerConteiner.classList.add('inactive');
+    header.classList.remove('header');
+    header.classList.add('headerCategory');
+    headerCarouselTitle.classList.remove('header-carousel-title');
+    headerCarouselTitle.classList.add('header-title');
+    backBtn.setAttribute('style', 'top:14%');
+    headerLanguage.setAttribute('style', 'top:14%');
+    headerCarouselContainer.setAttribute('style', 'display:none');
+    categoryContainer.classList.remove('categoryBox');
+    categoryContainer.classList.add('categoryBoxPage');
+    GotrendingBtn.setAttribute('style', 'display:none');
     favorites.setAttribute('style','display:none');
-    trendsBtn.classList.add('inactive');
-    movieDetail.classList.add('inactive');
-    trends.classList.add('inactive');
-    searchBox.classList.add('inactive');
-    relatedMoviesContainer.classList.add('inactive');
-    categoryTitle.classList.remove('inactive');
-    searchTitle.classList.add('inactive');
-    search.classList.add('inactive')
+    search.classList.add('inactive');
+    searchView.setAttribute('style', 'display:none');
     
     const queryArray = location.hash.split('=');
     const queryToCut = queryArray[1].split('-');
@@ -174,21 +166,22 @@ function categoryPage(){
 }
 
 function searchPage(){
-    console.log('search')
 
-    searchTitle.classList.remove('inactive');
-    headerTitleBackHome.classList.remove('inactive');
-    backBtn.classList.remove('inactive');
-    searchBox.classList.remove('inactive');
+    header.classList.remove('header');
+    header.classList.add('headerSearchView');
+    headerCarouselTitle.classList.remove('header-carousel-title');
+    headerCarouselTitle.classList.add('header-title');
+    searchForm.classList.remove('searchForm');
+    searchForm.classList.add('searchFormView');
+    searchFormInput.classList.remove('searchFormInput');
+    searchFormInput.classList.add('searchFormInputView');
+    searchBtn.classList.remove('searchBtn');
+    searchBtn.classList.add('searchBtnView');
+    backBtn.setAttribute('style', 'top:14%');
+    headerLanguage.setAttribute('style', 'top:14%');
+    GotrendingBtn.setAttribute('style', 'display:none');
+    headerCarouselContainer.setAttribute('style', 'display:none');
     categoryContainer.classList.add('inactive');
-    trends.classList.remove('inactive');
-    relatedMoviesContainer.classList.remove('inactive');
-    favoritesMoviesList.classList.add('inactive');
-    favoriteTitle.classList.add('inactive');
-    trendsBtn.classList.add('inactive');
-    headerConteiner.classList.add('inactive');
-    categoryTitle.classList.add('inactive');
-    movieDetail.classList.add('inactive');
     favorites.setAttribute('style', 'display:none')
 
     const searchArray = location.hash.split('=');

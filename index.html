@@ -5,98 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=Pangolin&display=swap" rel="stylesheet">
     <title>My Movie</title>
-    <link rel="stylesheet" href="./styles/app.css">
-    <link rel="stylesheet" href="./styles/tablet.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./styles/desktop.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./public/app.css">
+    <link rel="stylesheet" href="./public/tablet.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="./public/desktop.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
-    <header id="header">
-        <section class="header-home-conteiner">
-            <h1 class="header-home-title"> My Movie App </h1>
-            <div id="header-home-trending-container">
-                <img class="header-home-movie-img--loading" >
-            </div>
+    <header id="header" class="header">
+        <h1 class="header-carousel-title"> My Movie App </h1>
+        <section class="header-carousel-container">
+            <img class="header-carousel-img--loading" >
         </section>
-
-        <h1 class="header-title2 inactive"> My Movie App </h1>
-        <button class="backBtn inactive"> ⬅  </button>
-        <div class="header-title-language">
-            <!-- <h1 class="header-title"> Select language </h1> -->
-            <article class="header-language">
-                <img
-                    src="https://www.saberespractico.com/wp-content/uploads/2015/04/argentina-bandera-200px.jpg"
-                    class="flag-img"
-                    alt="Argentina"
-                    data-lang="es-AR"
-                />
-                <img
-                    src="https://www.saberespractico.com/wp-content/uploads/2015/04/brasil-bandera-200px.jpg"
-                    class="flag-img"
-                    alt="Brasil"
-                    data-lang="pt-BR"
-                />
-                <img
-                    src="https://www.saberespractico.com/wp-content/uploads/2015/04/eeuu-bandera-200px.jpg"
-                    class="flag-img"
-                    alt="EEUU"
-                    data-lang="en-EN"
-                />
-            </article>
+        <button class="header-backBtn"> ⬅  </button>
+        <div class="header-language">
+            <img
+                src="./public/Img/Flag_of_Argentina.svg.png"
+                class="flag-img"
+                alt="Argentina"
+                data-lang="es-AR"
+            />
+            <img
+                src="./public/Img/Flag_of_Brazil.svg.png"
+                class="flag-img"
+                alt="Brasil"
+                data-lang="pt-BR"
+            />
+            <img
+                src="./public/Img/Flag_of_the_United_States.svg.png"
+                class="flag-img"
+                alt="EEUU"
+                data-lang="en-EN"
+            />
         </div>
 
         <section id="search">
-            <form id="searchForm">
+            <form id="searchForm" class="searchForm">
                 <input type="text" placeholder="Search" class="searchFormInput" />
-                <button id="searchBtn"> 🔍︎ </button>
+                <button id="searchBtn" class="searchBtn"> 🔍︎ </button>
             </form>
-        </section>
-        
+        </section>   
     </header>
 
     <section id="categoryBox">
-        <h2 class="category-title inactive">Categories</h2>
-        <div class="category-conteiner-type--loading"></div>
+        <div class="category-container-type--loading"></div>
     </section>
 
     <section id="trends" class="trends inactive">
         <h2 id="Title-TrendsView" class="trendsView inactive"> Trendings of the week </h2>
-        <img class="trends-img--loading inactive" src="">
+        <img class="movieImg--loading inactive" src="">
     </section>
 
     <section id="category" class="category inactive">
-        <img class="trends-img--loading inactive">
+        <img class="movieImg--loading inactive">
     </section>
 
-    <section id="searchBox" class="category inactive">
-        <h3 id="searchTitle" class="category-title"> All results for: </h3>
+    <section id="searchView" class="category inactive">
+        
     </section>
 
     <section id="movieDetail" class="movieDetail-container inactive">
         <div class="movie-container">
             <h1 class="movieDetail-title"></h1>
             <p class="movieDetail-score">🍿</p>
-            <img class="trends-img--loading">
+            <img class="movieImg--loading">
         </div>
         <article class="relatedMovies-container">
             <img class="movie-img--loading">
-            <h2 class="category-title">Related Movies :</h2>
+            <h2 class="categoryBox-title">Related Movies :</h2>
         </article>
     </section>
 
     <section id="favorites"> 
         <div class="favorites-header">
-            <div class="love inactive"></div>
             <h2 class="favorites-title">Favorite films</h2>   
         </div>
         <article class="favorites-article">
-            <div class="favorites-div">
-            </div>
+            <div class="favorites-div"></div>
         </article>
     </section>
 
-    <section class="trendsBtn">
+    <section class="GotrendingBtn">
         <button id="trendingBtn">Go to Trendings</button>
     </section>
 

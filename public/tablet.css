@@ -1,0 +1,164 @@
+@media (min-width: 600px) {
+
+    .header {
+
+        width: 100vw;
+        height: 30vh;
+    }
+    
+    .header-carousel-title,
+    .header-title {
+        margin-top: 0px;
+        text-align: center;
+        font-size: xxx-large
+    }
+    
+    .header-carousel-title {
+    
+        z-index: unset;
+        position: unset;
+        top: auto;
+        left: auto;
+        margin-top: 25px;
+        font-size: xxx-large;
+    }
+    
+    #header div.header-language{
+        
+        right: 1%;
+        left: unset;
+        width: fit-content;
+        margin-top: 2%;
+    }
+    
+    /*Carousel*/
+    #header .header-carousel-container {
+        display: none;
+    }
+
+    #header .searchFormInput, 
+    #header .searchBtn {
+        
+        height: 7vh;
+        font-size: x-large;
+    } 
+
+    /* Favorites */
+    #favorites {
+
+        height: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #favorites .favorites-title {
+        margin-bottom: 18px;
+        font-size: x-large;
+    }
+
+    #favorites div.containerMovie {
+
+        width: 40vw;
+    }
+
+    #favorites img.movieImg {
+
+        height: auto;
+        width: 38vw;
+    }
+
+    #favorites img.movieImg:hover {
+
+        width: 37vw;
+    }
+
+    .favorites-article, #favorites article.favorites-article {
+        overflow-y: hidden;
+        white-space: nowrap;
+        height: auto;
+        min-height: 67%;
+        background: linear-gradient(to right, var(--white) 0%, var(--grey) 1%, var(--grey) 49%, var(--white) 50%, var(--grey) 51%, var(--grey) 99%, var(--white) 100%);
+        width: 100vw;
+        margin: auto;
+        border-radius: 3%;
+    }
+
+    #searchView button.favorites-btn {
+        left: 87%;
+    }
+
+    #movieDetail div.movie-container button {
+
+        position: absolute;
+        top: 13%;
+        left: 73%;
+        height: 5%;
+        width: 10%;
+    }
+    section.movieDetail-container article.relatedMovies button {
+
+        position: absolute;
+        top: 20%;
+        left: 81%;
+        height: 8%;
+        width: 13%;
+    }
+
+    #searchView img:hover {
+        box-shadow: 0px -14px 24px -16px rgba(255,255,255,0.8);
+    }
+
+    #categoryBox .category-type {
+        font-size: x-large;
+    }
+
+    #categoryBox {
+        margin-top: 14px;
+        border:yellow 2px
+    }
+
+    .header-backBtn, #header div.header-language img.flag-img{
+        width: 7vw;
+        height: 4vh;
+        margin-top: 2%;
+    }
+    .header-backBtn{
+        top:40%;
+        height: 5vh;
+        font-size: x-large;
+    }
+
+    .movieTitle, div.containerMovie .movieTitle {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    h1.trendsView, div.movie-container h1.categoryBox-title {
+        font-size: x-large;
+    }
+
+    .trends-overview {
+        font-size: large;
+    }
+
+    section.movieDetail-container article.relatedMovies h2 {
+        font-size: large;
+    }
+
+    #trends div.containerMovie button, #searchView div.containerMovie button {
+        position: absolute;
+        top: 14%;
+        left: 81%;
+        height: 10%;
+        width: 15%;
+        border-radius: 30px;
+        padding: 0;
+        margin: 0;
+        font-size: large;
+    }
+    #favorites button.favorites-btn {
+        font-size: large;
+    }
+    
+
+}

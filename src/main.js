@@ -20,6 +20,7 @@ function listFavoritesMovies(){
     } else {
         movies = {};
     }
+
     return movies; 
 }
 
@@ -34,11 +35,9 @@ function likeMovie (movie) {
 
     localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
     if (location.hash.startsWith('#home') || !location.hash) { homePage(); } 
-
 }
 
 //Language
-
 function assignLanguage(container) {
     const lenguajes = Array.from(container.querySelectorAll('img'));
 
@@ -54,39 +53,30 @@ function translator(langParam) {
     langParam = localStorage.getItem('language');
     
     if (langParam == "es-AR") {
-        // headerLanguageTitle.innerText = 'Seleccionar idioma';
+        
         searchFormInput.setAttribute('placeholder', 'Buscar pelicula');
         trendingsTitle.innerHTML = "Tendencias de la semana";
         trendingBtn.innerText = 'Tendencias';
-        categoryTitle.innerText = 'Categorias de peliculas';
-        // relatedMoviesTitle.innerHTML = "Peliculas similares";
         favoriteTitle.innerText = 'Tus favoritos';
         footer.innerText = 'Curso de API REST con Javascript. Realizado por @veronicaagarcia';
-        searchTitle.innerText = 'Todos los resultados para:'
     }
 
     if (langParam == 'pt-BR') {
-        // headerLanguageTitle.innerText = "Selecione o idioma";
+        
         searchFormInput.setAttribute("placeholder", "Procurar filme");
         trendingsTitle.innerText = "Tendências da semana";
         trendingBtn.innerText = "Tendências";
-        categoryTitle.innerText = "Categorias de filmes";
-        // relatedMoviesTitle.innerText = "Similar movies";
         favoriteTitle.innerText = "Seus favoritos";
         footer.innerText = 'Curso API REST com Javascript. Feito por @veronicaagarcia';
-        searchTitle.innerText = 'Todos os resultados para:';
     }
 
     if (langParam == 'en-EN') {
-        // headerLanguageTitle.innerText = "Select language";
+        
         searchFormInput.setAttribute("placeholder", "Search movie");
         trendingsTitle.innerText = "Trendings of the week";
         trendingBtn.innerText = "Trendings";
-        categoryTitle.innerText = "Movie categories";
-        // relatedMoviesTitle.innerText = "Similar movies";
         favoriteTitle.innerText = "Your favorites";
         footer.innerText = 'REST API course with Javascript. Made by @veronicaagarcia';
-        searchTitle.innerText = 'All results for:';
     }
 }
 
@@ -96,52 +86,45 @@ const lazyLoader = new IntersectionObserver((entries) => {
         if (img.isIntersecting) {
             const url = img.target.getAttribute('data-img')
             img.target.setAttribute('src', url);
-          }
+        }
     })
 })
 function makeMovies (
+
     array,
-    conteiner, 
+    container, 
     {
         lazyLoad = false,
         clean = true,
+
     } = {},
     ) {
 
-    if (clean){
-        conteiner.innerHTML = ''
+    if (clean) {
+
+        container.innerHTML = ''
     }
     array.forEach(movie => {
         
-        const trendsDiv = document.createElement('div');
-        trendsDiv.classList.add('trendsContainer');
-
-        // trendsDiv.addEventListener('click', () => {
-        //     location.hash = '#movie=' + movie.id
-        //     console.log(location.hash)
-        // })
-
-        conteiner.appendChild(trendsDiv);
-        const trendsDiv2 = document.createElement('div');
-        trendsDiv2.classList.add('trends-div');
-        trendsDiv.appendChild(trendsDiv2);
-        const trendsTitle = document.createElement('h3');
-        trendsTitle.classList.add('trends-title');
-        trendsTitle.innerText = `${movie.title}`;
-        trendsDiv2.appendChild(trendsTitle);
-        const trendsImg = document.createElement('img');
-        trendsImg.classList.add('trends-img');
-        trendsImg.setAttribute(
+        const containerMovie = document.createElement('div');
+        containerMovie.classList.add('containerMovie');
+        container.appendChild(containerMovie);
+        const movieTitle = document.createElement('h3');
+        movieTitle.classList.add('movieTitle');
+        movieTitle.innerText = `${movie.title}`;
+        containerMovie.appendChild(movieTitle);
+        const movieImg = document.createElement('img');
+        movieImg.classList.add('movieImg');
+        movieImg.setAttribute(
             lazyLoad ? 'data-img' : 'src',
             `https://image.tmdb.org/t/p/w500/${movie.poster_path}`);
 
-            trendsImg.addEventListener('click', () => {
-                    location.hash = '#movie=' + movie.id
-                    console.log(location.hash)
+            movieImg.addEventListener('click', () => {
+                location.hash = '#movie=' + movie.id
             })
             
-            trendsImg.addEventListener('error', () => {
-                trendsImg.setAttribute('src', 
+            movieImg.addEventListener('error', () => {
+                movieImg.setAttribute('src', 
                 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled.png')
             });
 
@@ -155,10 +138,10 @@ function makeMovies (
             });
 
             if (lazyLoad) {
-                lazyLoader.observe(trendsImg);
+                lazyLoader.observe(movieImg);
             }
-        trendsDiv2.appendChild(trendsImg);
-        trendsDiv2.appendChild(favoriteBtn);
+        containerMovie.appendChild(movieImg);
+        containerMovie.appendChild(favoriteBtn);
     }); 
 }
 
@@ -178,22 +161,17 @@ function btnLoad (){
 //Api calls
 
 async function getTrendingMoviesDay() {
+
     const { data } = await api('trending/movie/day');
     const movies = data.results;
 
-    makeMovies(movies,trendingContainer, {lazyLoad: true, clean: true});
+    makeMovies(movies, headerCarouselContainer, {lazyLoad: true, clean: true});
 }
 
 async function getTrendingMoviesWeek() {
     const { data } = await api('trending/movie/week');
     const movies = data.results;
     maxPage = data.total_pages;
-
-    // trends.innerHTML = '';
-    // const trendsView = document.createElement('h1');
-    // trendsView.classList.add('trendsView');
-    // trendingsTitle.innerText= 'Trendings of the week';
-    // trends.appendChild(trendingsTitle);
 
     makeMovies(movies, trends, {lazyLoad: true, clean: true});
     
@@ -219,9 +197,9 @@ async function getCategoryMoviesBox() {
     const categories = data.genres;
 
     categoryContainer.innerHTML = '';
-    const categoryConteinerType = document.createElement('div');
-    categoryConteinerType.classList.add('category-conteiner-type');
-    categoryContainer.appendChild(categoryConteinerType);
+    const categoryContainerType = document.createElement('div');
+    categoryContainerType.classList.add('category-container-type');
+    categoryContainer.appendChild(categoryContainerType);
 
     categories.forEach(genre => {
         
@@ -233,7 +211,7 @@ async function getCategoryMoviesBox() {
             location.reload();
           });
         pGenre.innerHTML = `${genre.name}`;
-        categoryConteinerType.appendChild(pGenre);
+        categoryContainerType.appendChild(pGenre);
     }); 
 }
 
@@ -245,14 +223,14 @@ async function getMovieDetailById(MovieId) {
      
     movieDetailDiv.classList.add('movie-container');
     movieDetail.appendChild(movieDetailDiv);
-    movieDetailTitle.classList.add('category-title');
+    movieDetailTitle.classList.add('categoryBox-title');
     movieDetailTitle.innerText = `${movie.title}`;
     movieDetailDiv.appendChild(movieDetailTitle);
     movieDetailScore.classList.add('movieDetail-score');
     movieDetailScore.innerText = `🍿: ${(movie.vote_average).toFixed(1)}`;
     movieDetailDiv.appendChild(movieDetailScore);
     const movieDetailImg = document.createElement('img');
-    movieDetailImg.classList.add('trends-img');
+    movieDetailImg.classList.add('movieImg');
     movieDetailDiv.appendChild(movieDetailImg);
     movieDetailImg.setAttribute("src", `https://image.tmdb.org/t/p/w500/${movie.poster_path}`);
     const favoriteBtn = document.createElement('button');
@@ -281,14 +259,14 @@ async function getRelatedMoviesById(MovieId) {
     relatedMoviesContainer.innerHTML = '';
     relatedMoviesContainer.classList.add('relatedMovies');
     const relatedMoviesSection = document.createElement('h2');
-    relatedMoviesSection.classList.add('category-title');
+    relatedMoviesSection.classList.add('categoryBox-title');
     relatedMoviesSection.innerText = 'Peliculas similares-Similar movies-filmes semelhantes';
     relatedMoviesContainer.appendChild(relatedMoviesSection);
 
     makeMovies(relatedMovies,relatedMoviesContainer, {lazyLoad: true, clean: false});
 }
 async function getScrollRelatedMoviesById() {
-    // ver porque no funciona
+   
     const {
       scrollTop,
       scrollHeight,
@@ -359,13 +337,9 @@ async function getSearchBy(searchValue) {
     maxPage = data.total_pages;
 
     const search = data.results
-    searchBox.innerHTML = '';
-    const searchTitle = document.createElement('h2');
-    searchTitle.classList.add('category-title');
-    searchTitle.innerHTML = `${(searchValue).replace(/%20/g, " ")}`;
-    searchBox.appendChild(searchTitle);
+    searchView.innerHTML = '';
     
-    makeMovies(search, searchBox, {lazyLoad: true, clean: false});
+    makeMovies(search, searchView, {lazyLoad: true, clean: false});
 }
 async function getScroll() {
     const {
@@ -390,7 +364,7 @@ async function getScroll() {
       });
       const search = data.results
   
-      makeMovies(search, searchBox, {lazyLoad: true, clean: false});
+      makeMovies(search, searchView, {lazyLoad: true, clean: false});
     }
 }
 
